@@ -1,0 +1,27 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+    background-color: #001f3f; 
+    cursor: none; 
+}
+
+#container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#submarine {
+    position: absolute;
+    width: 80px;
+    height: 40px;
+}
+
+#submarine img {
+    width: 100%;
+    height: 100%;
+}
