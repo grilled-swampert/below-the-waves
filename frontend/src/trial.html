@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokémon Water Exploration and Fishing Game</title>
+    <style>
+      canvas {
+        border: 1px solid black;
+        background-color: #87ceeb; /* Sky blue to represent water */
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+    <script>
+      const canvas = document.getElementById("gameCanvas");
+      const ctx = canvas.getContext("2d");
+
+      // Game constants
+      const MOVING = 0;
+      const ENCOUNTER = 1;
+      const FISHING = 2;
+      const NO_FISH = 3;
+      const PLAYER_SIZE = 50;
+      const PLAYER_SPEED = 5;
+      const BASE_ENCOUNTER_CHANCE = 0.00001; // Increased for more frequent encounters
+      const STEPS_TO_INCREASE_CHANCE = 20; // Decreased for quicker increase
+      const FISHING_BASE_CHANCE = 0.5; // Increased for more frequent fishing success
+
+      // Game variables
+      let playerX = canvas.width / 2;
+      let playerY = canvas.height / 2;
+      let gameState = MOVING;
+      let currentPokemon = "";
+      let stepsTaken = 0;
+      let currentEncounterChance = BASE_ENCOUNTER_CHANCE;
+      let messageTimer = 0;
+
+      // Pokémon lists with rarity
+      const fishingPokemonList = [
+        { name: "Squirtle", rarity: "rare" },
+        { name: "Wartortle", rarity: "super rare" },
+        { name: "Poliwag", rarity: "common" },
+        { name: "Tentacool", rarity: "common" },
+        { name: "Tentacruel", rarity: "common" },
+        { name: "Slowpoke", rarity: "common" },
+        { name: "Seel", rarity: "common" },
+        { name: "Horsea", rarity: "common" },
+        { name: "Seadra", rarity: "rare" },
+        { name: "Goldeen", rarity: "common" },
+        { name: "Seaking", rarity: "rare" },
+        { name: "Staryu", rarity: "common" },
+        { name: "Starmie", rarity: "rare" },
+        { name: "Magikarp", rarity: "common" },
+        { name: "Omanyte", rarity: "rare" },
+        { name: "Omastar", rarity: "super rare" },
+      ];
+
+      const waterPokemonList = [
+        { name: "Blastoise", rarity: "too rare" },
+        { name: "Psyduck", rarity: "common" },
+        { name: "Golduck", rarity: "super rare" },
+        { name: "Poliwhirl", rarity: "rare" },
+        { name: "Poliwrath", rarity: "super rare" },
+        { name: "Slowbro", rarity: "super rare" },
+        { name: "Dewgong", rarity: "rare" },
+        { name: "Gyarados", rarity: "super rare" },
+        { name: "Lapras", rarity: "super rare" },
+        { name: "Vaporeon", rarity: "rare" },
+        { name: "Articuno", rarity: "legendary" },
+      ];
+
+      // Keyboard state
+      const keys = {};
+
+      // Event listeners for keyboard input
+      window.addEventListener("keydown", (e) => {
+        keys[e.key] = true;
+        if (gameState === ENCOUNTER || gameState === NO_FISH) {
+          gameState = MOVING;
+          currentEncounterChance = BASE_ENCOUNTER_CHANCE;
+          stepsTaken = 0;
+        }
+        if (e.code === "Space" && gameState === MOVING) {
+          startFishing();
+        }
+      });
+
+      window.addEventListener("keyup", (e) => {
+        keys[e.key] = false;
+      });
+
+      function getRandomPokemon(pokemonList) {
+        const rarityChance = Math.random();
+        let filteredList;
+
+        if (rarityChance < 0.01) {
+          filteredList = pokemonList.filter(
+            (p) => p.rarity === "legendary" || p.rarity === "too rare"
+          );
+        } else if (rarityChance < 0.05) {
+          filteredList = pokemonList.filter((p) => p.rarity === "super rare");
+        } else if (rarityChance < 0.2) {
+          filteredList = pokemonList.filter((p) => p.rarity === "rare");
+        } else {
+          filteredList = pokemonList.filter((p) => p.rarity === "common");
+        }
+
+        return filteredList[Math.floor(Math.random() * filteredList.length)];
+      }
+
+      function startFishing() {
+        gameState = FISHING;
+        setTimeout(() => {
+          if (Math.random() < FISHING_BASE_CHANCE) {
+            gameState = ENCOUNTER;
+            currentPokemon = getRandomPokemon(fishingPokemonList);
+          } else {
+            gameState = NO_FISH;
+            messageTimer = 120;
+          }
+        }, 1000);
+      }
+
+      function update() {
+        if (gameState === MOVING) {
+          let moved = false;
+          if (keys["w"] && playerY > 0) {
+            playerY -= PLAYER_SPEED;
+            moved = true;
+          }
+          if (keys["s"] && playerY < canvas.height - PLAYER_SIZE) {
+            playerY += PLAYER_SPEED;
+            moved = true;
+          }
+          if (keys["a"] && playerX > 0) {
+            playerX -= PLAYER_SPEED;
+            moved = true;
+          }
+          if (keys["d"] && playerX < canvas.width - PLAYER_SIZE) {
+            playerX += PLAYER_SPEED;
+            moved = true;
+          }
+
+          if (moved) {
+            stepsTaken++;
+            if (stepsTaken % STEPS_TO_INCREASE_CHANCE === 0) {
+              currentEncounterChance += BASE_ENCOUNTER_CHANCE;
+            }
+
+            if (Math.random() < currentEncounterChance) {
+              gameState = ENCOUNTER;
+              currentPokemon = getRandomPokemon(waterPokemonList);
+            }
+          }
+        } else if (gameState === NO_FISH) {
+          messageTimer--;
+          if (messageTimer <= 0) {
+            gameState = MOVING;
+          }
+        }
+      }
+
+      function draw() {
+        // Clear the canvas
+        ctx.fillStyle = "#87CEEB";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Draw the player (as a boat)
+        ctx.fillStyle = "brown";
+        ctx.fillRect(playerX, playerY, PLAYER_SIZE, PLAYER_SIZE / 2);
+        ctx.fillStyle = "white";
+        ctx.beginPath();
+        ctx.moveTo(playerX, playerY + PLAYER_SIZE / 2);
+        ctx.lineTo(playerX + PLAYER_SIZE / 2, playerY + PLAYER_SIZE);
+        ctx.lineTo(playerX + PLAYER_SIZE, playerY + PLAYER_SIZE / 2);
+        ctx.fill();
+
+        // Display game state
+        ctx.fillStyle = "black";
+        ctx.font = "24px Arial";
+        ctx.textAlign = "center";
+
+        if (gameState === ENCOUNTER) {
+          ctx.fillText(
+            `A wild ${currentPokemon.name} appeared!`,
+            canvas.width / 2,
+            canvas.height / 2 - 20
+          );
+          ctx.fillText(
+            `Rarity: ${currentPokemon.rarity}`,
+            canvas.width / 2,
+            canvas.height / 2
+          );
+        } else if (gameState === FISHING) {
+          ctx.fillText("Fishing...", canvas.width / 2, canvas.height / 2);
+        } else if (gameState === NO_FISH) {
+          ctx.fillText(
+            "No pokemon found!",
+            canvas.width / 2,
+            canvas.height / 2
+          );
+        }
+
+        // Display steps taken and current encounter chance
+        ctx.font = "16px Arial";
+        ctx.textAlign = "left";
+        ctx.fillText(`Steps: ${stepsTaken}`, 10, 20);
+        ctx.fillText(
+          `Encounter Chance: ${(currentEncounterChance * 100).toFixed(4)}%`,
+          10,
+          40
+        );
+        ctx.fillText("Press SPACE to fish", 10, 60);
+      }
+
+      function gameLoop() {
+        update();
+        draw();
+        requestAnimationFrame(gameLoop);
+      }
+
+      // Start the game loop
+      gameLoop();
+    </script>
+  </body>
+</html>
