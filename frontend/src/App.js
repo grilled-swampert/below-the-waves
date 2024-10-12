@@ -9,7 +9,7 @@ import MysteriesPage from './pages/mysteries/mysteriesPage';
 import WikiPage from './pages/wiki/wikiPage';
 import GamePage from './pages/game/gamePage';
 import OverviewPage from './pages/overview/overviewPage';
-import Preloader from './pages/preloader/preloader';
+import Preloader from './pages/preloader/preloaderPage';
 
 function App() {
   return (
