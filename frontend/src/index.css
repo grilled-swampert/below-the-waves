@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 :root {
   --bright-yellow-crayola: hsl(40, 100%, 50%);
   --medium-turquoise: hsl(172, 48%, 59%);
@@ -21,6 +23,7 @@
   --black: hsl(0, 0%, 0%);
   --jet: hsl(0, 0%, 18%);
 
+  --ff-poppins: "Poppins", sans-serif;
   --ff-oswald: "Oswald", sans-serif;
   --ff-inter: "Inter", sans-serif;
   --ff-roboto: "Roboto", sans-serif;
@@ -111,7 +114,7 @@ button {
 }
 
 html {
-  font-family: var(--ff-roboto);
+  font-family: var(--ff-poppins);
   color: var(--granite-gray);
   font-size: 10px;
   scroll-behavior: smooth;
@@ -125,7 +128,6 @@ body {
   font-family: Arial, sans-serif;
   display: flex;
   justify-content: center;
-  align-items: center;
   min-height: 100vh;
   padding: 20px;
 }
