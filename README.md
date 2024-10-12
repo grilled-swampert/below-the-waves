@@ -1,5 +1,5 @@
 # Below The Waves - Ocean Conservation Website
-Below The Waves is an ocean conservation organization dedicated to protecting marine life. This website, currently in development, will share ocean news, highlight our conservation projects, and maintain a database of marine species among other features.
+Below The Waves is an ocean conservation organization dedicated to protecting marine life. This website, <b>currently in development</b>, will share ocean news, highlight our conservation projects, and maintain a database of marine species among other features.
 
 ## Features
 - Ocean News: Stay updated with the latest ocean-related news.
