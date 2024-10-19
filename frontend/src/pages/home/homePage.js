@@ -4,6 +4,7 @@ import "./homePage.css";
 import mainBackground from "../../assets/images/main-background.jpg";
 import { Header } from "../../components/Header";
 import quote01 from "../../assets/svgs/quote-1.svg";
+import Newsletter from "../../components/newsletter/Newsletter";
 
 const HomePage = () => {
   const imageRef = useRef(null);
@@ -85,19 +86,16 @@ const HomePage = () => {
           </p>
         </div>
 
+        <Newsletter />
+
         <div className="three-boxes">
           <div className="box">Box 1</div>
           <div className="box">Box 2</div>
           <div className="box">Box 3</div>
         </div>
 
-        <div className="newsletter-section">
-          <h2>Subscribe to Our Newsletter</h2>
-          <form className="newsletter-form">
-            <input type="email" placeholder="Enter your email" />
-            <button type="submit">Subscribe</button>
-          </form>
-        </div>
+
+
 
         <div className="single-box">
           <p>This is a special feature box.</p>
