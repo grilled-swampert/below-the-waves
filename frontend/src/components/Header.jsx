@@ -1,9 +1,44 @@
+import { useRef, useState } from "react";
 import "./Header.css";
+import homeImage from "../assets/images/home.jpg";
+import wikiImage from "../assets/images/wiki.jpg";
+import workImage from "../assets/images/work.jpg";
+import newsroomImage from "../assets/images/newsroom.jpg";
+import contactImage from "../assets/images/lighthouse.jpg";
 
 export const Header = () => {
+  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+  const [currentItem, setCurrentItem] = useState(0);
+
+  const openNavbar = () => {
+    setIsNavbarOpen(!isNavbarOpen);
+  };
+
+  const images = [
+    homeImage,
+    wikiImage,
+    workImage,
+    newsroomImage,
+    contactImage,
+  ];
+
+  const menuItems = [
+    { number: "01", text: "Home", link: "/home" },
+    { number: "02", text: "Wiki", link: "/wiki" },
+    { number: "03", text: "Our Work", link: "/work" },
+    { number: "04", text: "Newsroom", link: "/newsroom" },
+    { number: "05", text: "Contact", link: "/contact" },
+  ];
+
+  const navigate = (index) => {
+    if (index !== currentItem) {
+      setCurrentItem(index);
+    }
+  };
+
   return (
-    <header class="header-wrapper" role="banner">
-      <div class="header-inner">
+    <header className="header-wrapper" role="banner">
+      <div className="header-inner">
         <a
           class="logo"
           id="logo"
@@ -32,12 +67,12 @@ export const Header = () => {
           </defs>
         </a>
         <button
-          class="hamburger"
+          className="hamburger"
           aria-label="Open menu"
           aria-controls="navigation"
-          aria-expanded="false"
-          tabindex="0"
-          fdprocessedid="g0ipx8"
+          aria-expanded={isNavbarOpen}
+          tabIndex={0}
+          onClick={openNavbar}
         >
           <svg
             width="30"
@@ -45,12 +80,39 @@ export const Header = () => {
             viewBox="0 0 24 15"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            className="hamburger-icon"
           >
-            <path d="M0 1.4375H24" stroke="#F0FFF6" stroke-width="1.5"></path>
-            <path d="M0 7.4375H24" stroke="#F0FFF6" stroke-width="1.5"></path>
-            <path d="M0 13.4375H24" stroke="#F0FFF6" stroke-width="1.5"></path>
+            <path d="M0 1.4375H24" stroke="#F0FFF6" strokeWidth="1.5"></path>
+            <path d="M0 7.4375H24" stroke="#F0FFF6" strokeWidth="1.5"></path>
+            <path d="M0 13.4375H24" stroke="#F0FFF6" strokeWidth="1.5"></path>
           </svg>
         </button>
+
+        <div className={`left-panel ${isNavbarOpen ? "open" : ""}`}>
+          <img 
+            src={images[currentItem]} 
+            alt={`Current item ${menuItems[currentItem].text}`} 
+            className="left-panel-image" 
+          />
+        </div>
+
+         <div className={`right-panel ${isNavbarOpen ? "open" : ""}`}>
+        <nav className="menu">
+          {menuItems.map((item, index) => (
+            <div 
+              key={index} 
+              className={`menu__item ${index === currentItem ? 'menu__item--current' : ''}`}
+              onClick={() => navigate(index)}
+            >
+              <span className="menu__item-number">{item.number}</span>
+              <span className="menu__item-textwrap">
+                <span className="menu__item-text">{item.text}</span>
+                <a className="menu__item-link" href={item.link}>explore</a>
+              </span>
+            </div>
+          ))}
+        </nav>
+      </div>
       </div>
     </header>
   );

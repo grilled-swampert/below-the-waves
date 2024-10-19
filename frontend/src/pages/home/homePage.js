@@ -11,7 +11,6 @@ const HomePage = () => {
   const arrowRef = useRef(null); // Create a reference for the arrow
 
   useEffect(() => {
-    // Animate the background image
     gsap.from(imageRef.current, {
       opacity: 0,
       scale: 1.2,
@@ -19,21 +18,19 @@ const HomePage = () => {
       ease: "power2.out",
     });
 
-    // Animate text elements
     textRefs.current.forEach((textRef, index) => {
       gsap.from(textRef, {
         opacity: 0,
         y: 50,
         duration: 1,
         ease: "power2.out",
-        delay: index * 0.3, // Delay for staggered effect
+        delay: index * 0.3, 
       });
     });
 
-    // Animate the down arrow
     gsap.fromTo(
       arrowRef.current,
-      { y: 0, opacity: 0 }, // Starting properties
+      { y: 0, opacity: 0 }, 
       {
         y: 10,
         opacity: 1,
