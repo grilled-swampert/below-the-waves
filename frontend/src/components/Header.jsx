@@ -24,7 +24,7 @@ export const Header = () => {
 
   const menuItems = [
     { number: "01", text: "Home", link: "/home" },
-    { number: "02", text: "Wiki", link: "/wiki" },
+    { number: "02", text: "Wiki ↗", link: "/wiki" },
     { number: "03", text: "Our Work", link: "/work" },
     { number: "04", text: "Newsroom", link: "/newsroom" },
     { number: "05", text: "Contact", link: "/contact" },
