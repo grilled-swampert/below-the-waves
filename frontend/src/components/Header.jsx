@@ -66,6 +66,8 @@ export const Header = () => {
             </clipPath>
           </defs>
         </a>
+        <button>Fundraiser</button>
+        <button>Donate</button>
         <button
           className="hamburger"
           aria-label="Open menu"
