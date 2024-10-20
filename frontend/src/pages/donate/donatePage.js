@@ -1,9 +1,13 @@
-import React from 'react';
+import React from "react";
+import { Header } from "../../components/Header";
 
 const DonatePage = () => {
-    return (
-        <h1>donate page yo</h1>
-    );
+  return (
+    <>
+      <Header />
+      <h1>donate page yo</h1>
+    </>
+  );
 };
 
 export default DonatePage;

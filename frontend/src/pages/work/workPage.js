@@ -1,14 +1,14 @@
 import React from "react";
-import "./newsPage.css";
+import "./workPage.css";
 import { Header } from "../../components/Header";
 
-const NewsPage = () => {
+const WorkPage = () => {
   return (
     <div className="screen-grid">
       <Header />
-      <h1>news page yo</h1>
+      <h1>WorkPage page yo</h1>
     </div>
   );
 };
 
-export default NewsPage;
+export default WorkPage;

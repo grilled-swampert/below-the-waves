@@ -1,26 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Header.css";
 import homeImage from "../assets/images/home.jpg";
 import wikiImage from "../assets/images/wiki.jpg";
 import workImage from "../assets/images/work.jpg";
 import newsroomImage from "../assets/images/newsroom.jpg";
 import contactImage from "../assets/images/lighthouse.jpg";
+import { useNavigate } from "react-router-dom";
 
 export const Header = () => {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
   const [currentItem, setCurrentItem] = useState(0);
+  const navigateURL = useNavigate();
 
   const openNavbar = () => {
     setIsNavbarOpen(!isNavbarOpen);
   };
 
-  const images = [
-    homeImage,
-    wikiImage,
-    workImage,
-    newsroomImage,
-    contactImage,
-  ];
+  const images = [homeImage, wikiImage, workImage, newsroomImage, contactImage];
 
   const menuItems = [
     { number: "01", text: "Home", link: "/home" },
@@ -34,6 +30,29 @@ export const Header = () => {
     if (index !== currentItem) {
       setCurrentItem(index);
     }
+  };
+
+  useEffect(() => {
+    const url = window.location.href;
+    if (url.includes("/home")) {
+      setCurrentItem(0);
+    } else if (url.includes("/wiki")) {
+      setCurrentItem(1);
+    } else if (url.includes("/work")) {
+      setCurrentItem(2);
+    } else if (url.includes("/newsroom")) {
+      setCurrentItem(3);
+    } else if (url.includes("/contact")) {
+      setCurrentItem(4);
+    }
+  }, []);
+
+  const redirectFunds = () => {
+    navigateURL("/funds");
+  };
+
+  const redirectDonate = () => {
+    navigateURL("/donate");
   };
 
   return (
@@ -66,55 +85,73 @@ export const Header = () => {
             </clipPath>
           </defs>
         </a>
-        <button>Fundraiser</button>
-        <button>Donate</button>
-        <button
-          className="hamburger"
-          aria-label="Open menu"
-          aria-controls="navigation"
-          aria-expanded={isNavbarOpen}
-          tabIndex={0}
-          onClick={openNavbar}
-        >
-          <svg
-            width="30"
-            height="21"
-            viewBox="0 0 24 15"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="hamburger-icon"
+        <div className="header-right">
+          <button
+            className="fundraiser__button"
+            aria-label="go to fundraising"
+            onClick={redirectFunds}
           >
-            <path d="M0 1.4375H24" stroke="#F0FFF6" strokeWidth="1.5"></path>
-            <path d="M0 7.4375H24" stroke="#F0FFF6" strokeWidth="1.5"></path>
-            <path d="M0 13.4375H24" stroke="#F0FFF6" strokeWidth="1.5"></path>
-          </svg>
-        </button>
-
-        <div className={`left-panel ${isNavbarOpen ? "open" : ""}`}>
-          <img 
-            src={images[currentItem]} 
-            alt={`Current item ${menuItems[currentItem].text}`} 
-            className="left-panel-image" 
-          />
-        </div>
-
-         <div className={`right-panel ${isNavbarOpen ? "open" : ""}`}>
-        <nav className="menu">
-          {menuItems.map((item, index) => (
-            <div 
-              key={index} 
-              className={`menu__item ${index === currentItem ? 'menu__item--current' : ''}`}
-              onClick={() => navigate(index)}
+            F
+          </button>
+          <button
+            className="donate__button"
+            aria-label="donate"
+            onClick={redirectDonate}
+          >
+            D
+          </button>
+          <button
+            className="hamburger"
+            aria-label="Open menu"
+            aria-controls="navigation"
+            aria-expanded={isNavbarOpen}
+            tabIndex={0}
+            onClick={openNavbar}
+          >
+            <svg
+              width="30"
+              height="21"
+              viewBox="0 0 24 15"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="hamburger-icon"
             >
-              <span className="menu__item-number">{item.number}</span>
-              <span className="menu__item-textwrap">
-                <span className="menu__item-text">{item.text}</span>
-                <a className="menu__item-link" href={item.link}>explore</a>
-              </span>
-            </div>
-          ))}
-        </nav>
-      </div>
+              <path d="M0 1.4375H24" stroke="#F0FFF6" strokeWidth="1.5"></path>
+              <path d="M0 7.4375H24" stroke="#F0FFF6" strokeWidth="1.5"></path>
+              <path d="M0 13.4375H24" stroke="#F0FFF6" strokeWidth="1.5"></path>
+            </svg>
+          </button>
+
+          <div className={`left-panel ${isNavbarOpen ? "open" : ""}`}>
+            <img
+              src={images[currentItem]}
+              alt={`Current item ${menuItems[currentItem].text}`}
+              className="left-panel-image"
+            />
+          </div>
+
+          <div className={`right-panel ${isNavbarOpen ? "open" : ""}`}>
+            <nav className="menu">
+              {menuItems.map((item, index) => (
+                <div
+                  key={index}
+                  className={`menu__item ${
+                    index === currentItem ? "menu__item--current" : ""
+                  }`}
+                  onClick={() => navigate(index)}
+                >
+                  <span className="menu__item-number">{item.number}</span>
+                  <span className="menu__item-textwrap">
+                    <span className="menu__item-text">{item.text}</span>
+                    <a className="menu__item-link" href={item.link}>
+                      explore
+                    </a>
+                  </span>
+                </div>
+              ))}
+            </nav>
+          </div>
+        </div>
       </div>
     </header>
   );
