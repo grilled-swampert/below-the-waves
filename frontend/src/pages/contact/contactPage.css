@@ -17,8 +17,7 @@
   overflow: hidden;
 }
 
-.news-background {
+.contact-background {
   object-fit: cover; 
   border-radius: 3rem;
-  min-width: 1500px
 }

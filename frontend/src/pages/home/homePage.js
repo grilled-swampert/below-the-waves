@@ -6,14 +6,15 @@ import { Header } from "../../components/Header";
 import quote01 from "../../assets/svgs/quote-1.svg";
 import Newsletter from "../../components/newsletter/Newsletter";
 import { HomeCarousel } from "../../components/homeCarousel/HomeCarousel";
-import OceanWaveFooter from "../../components/footer/Footer";
 import AboutUs from "../../components/aboutUs/About_Us";
 import CampaignElement from "../../components/campaignElement/campaignElement";
+import Footer from "../../components/footer/Footer";
+import FishVideo from "../../assets/video/fish.mp4";
 
 const HomePage = () => {
   const imageRef = useRef(null);
   const textRefs = useRef([]);
-  const arrowRef = useRef(null); 
+  const arrowRef = useRef(null);
 
   useEffect(() => {
     gsap.from(imageRef.current, {
@@ -29,13 +30,13 @@ const HomePage = () => {
         y: 50,
         duration: 1,
         ease: "power2.out",
-        delay: index * 0.3, 
+        delay: index * 0.3,
       });
     });
 
     gsap.fromTo(
       arrowRef.current,
-      { y: 0, opacity: 0 }, 
+      { y: 0, opacity: 0 },
       {
         y: 10,
         opacity: 1,
@@ -43,7 +44,7 @@ const HomePage = () => {
         ease: "power2.inOut",
         repeat: -1,
         yoyo: true,
-      } // Animation properties
+      }
     );
   }, []);
 
@@ -61,10 +62,9 @@ const HomePage = () => {
           <p className="text-part-1" ref={(el) => (textRefs.current[0] = el)}>
             <img src={quote01} alt="Quote 1" className="quote-1" />
           </p>
-          <p
-            className="text-part-2"
-            ref={(el) => (textRefs.current[1] = el)}
-          >We hold one torch high, and try to keep it burning bright. </p>
+          <p className="text-part-2" ref={(el) => (textRefs.current[1] = el)}>
+            We hold one torch high, and try to keep it burning bright.{" "}
+          </p>
           <p
             className="text-part-3"
             ref={(el) => (textRefs.current[2] = el)}
@@ -94,11 +94,19 @@ const HomePage = () => {
 
         <AboutUs />
 
+        <video autoPlay muted loop className="video">
+          <source
+            src={FishVideo}
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
+
         <HomeCarousel />
 
         <CampaignElement />
 
-        <OceanWaveFooter />
+        <Footer />
       </div>
     </div>
   );

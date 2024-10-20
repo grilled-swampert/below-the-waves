@@ -1,13 +1,19 @@
 import React from "react";
 import "./HomeCarousel.css";
 
+import Groceries from "./images/groceries.png";
+import Robot from "./images/robot.png";
+import Plants from "./images/plants.png";
+import CatMuffs from "./images/cat-muffs.png";
+
+
 export const HomeCarousel = () => {
   const stickySections = [...document.querySelectorAll(".sticky")];
   let images = [
-    "/images/groceries.png",
-    "/images/robot.png",
-    "/images/plants.png",
-    "/images/cat-muffs.png",
+    Groceries,
+    Robot,
+    Plants,
+    CatMuffs
   ];
 
   images.forEach((img) => {
