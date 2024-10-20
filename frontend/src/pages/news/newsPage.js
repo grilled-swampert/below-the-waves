@@ -6,7 +6,13 @@ const NewsPage = () => {
   return (
     <div className="screen-grid">
       <Header />
-      <h1>news page yo</h1>
+      <div className="content-wrapper">
+        {/* <img
+          src={DolphinBg}
+          alt="News Background"
+          className="news-background"
+        /> */}
+      </div>
     </div>
   );
 };

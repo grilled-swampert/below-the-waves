@@ -1,6 +1,12 @@
 .screen-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    width: 95vw;
-  }
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 95vw;
+}
+
+.contact-wrapper {
+  object-fit: cover; 
+  border-radius: 3rem;
+}
+
