@@ -5,11 +5,15 @@ import mainBackground from "../../assets/images/main-background.jpg";
 import { Header } from "../../components/Header";
 import quote01 from "../../assets/svgs/quote-1.svg";
 import Newsletter from "../../components/newsletter/Newsletter";
+import { HomeCarousel } from "../../components/homeCarousel/HomeCarousel";
+import OceanWaveFooter from "../../components/footer/Footer";
+import AboutUs from "../../components/aboutUs/About_Us";
+import CampaignElement from "../../components/campaignElement/campaignElement";
 
 const HomePage = () => {
   const imageRef = useRef(null);
   const textRefs = useRef([]);
-  const arrowRef = useRef(null); // Create a reference for the arrow
+  const arrowRef = useRef(null); 
 
   useEffect(() => {
     gsap.from(imageRef.current, {
@@ -88,34 +92,13 @@ const HomePage = () => {
 
         <Newsletter />
 
-        <div className="three-boxes">
-          <div className="box">Box 1</div>
-          <div className="box">Box 2</div>
-          <div className="box">Box 3</div>
-        </div>
+        <AboutUs />
 
+        <HomeCarousel />
 
+        <CampaignElement />
 
-
-        <div className="single-box">
-          <p>This is a special feature box.</p>
-        </div>
-
-        <div className="carousel">
-          <div className="carousel-box">Carousel Box 1</div>
-          <div className="carousel-box">Carousel Box 2</div>
-          <div className="carousel-box">Carousel Box 3</div>
-        </div>
-
-        <footer className="footer">
-          <p>&copy; 2024 Your Company Name. All Rights Reserved.</p>
-          <p>&copy; 2024 Your Company Name. All Rights Reserved.</p>
-          <p>&copy; 2024 Your Company Name. All Rights Reserved.</p>
-          <p>&copy; 2024 Your Company Name. All Rights Reserved.</p>
-          <p>&copy; 2024 Your Company Name. All Rights Reserved.</p>
-          <p>&copy; 2024 Your Company Name. All Rights Reserved.</p>
-          <p>&copy; 2024 Your Company Name. All Rights Reserved.</p>
-        </footer>
+        <OceanWaveFooter />
       </div>
     </div>
   );

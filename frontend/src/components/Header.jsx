@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import "./Header.css";
 import homeImage from "../assets/images/home.jpg";
 import wikiImage from "../assets/images/wiki.jpg";
