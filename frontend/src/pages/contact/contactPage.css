@@ -17,7 +17,43 @@
   overflow: hidden;
 }
 
+.contact-wrapper {
+  position: relative;
+}
+
 .contact-background {
-  object-fit: cover; 
+  max-width: 95vw;
+  margin: 0 auto;
   border-radius: 3rem;
+  z-index: -1;
+  object-fit: cover;
+  filter: brightness(
+    0.9
+  ); /* Darken the image slightly for better text contrast */
+}
+
+.contact-content {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  margin: 2rem;
+}
+
+.contact-details, .map-container, .earth-container {
+  flex: 1 1 300px;
+  margin: 1rem;
+}
+
+.contact-details h2 {
+  color: #0088ff;
+}
+
+.earth-container {
+  width: 300px;
+  height: 300px;
 }

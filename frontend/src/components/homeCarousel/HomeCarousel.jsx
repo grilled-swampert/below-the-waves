@@ -20,10 +20,11 @@ export const HomeCarousel = () => {
     stickySections.forEach((section) => {
       let image = document.createElement("img");
       image.src = img;
+      image.style.width = "400px";  
       section.querySelector(".scroll_section").appendChild(image);
     });
   });
-
+  
   window.addEventListener("scroll", (e) => {
     for (let i = 0; i < stickySections.length; i++) {
       transform(stickySections[i]);
@@ -44,11 +45,6 @@ export const HomeCarousel = () => {
     <div className="sticky_parent">
       <div className="sticky">
         <div className="scroll_section">
-          <button type="button" className="button">
-            <div className="button-top"> PLAY </div>
-            <div className="button-bottom"></div>
-            <div className="button-base"></div>
-          </button>
         </div>
       </div>
     </div>

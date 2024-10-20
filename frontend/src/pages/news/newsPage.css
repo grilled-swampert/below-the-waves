@@ -5,8 +5,29 @@
   width: 95vw;
 }
 
-.contact-wrapper {
-  object-fit: cover; 
-  border-radius: 3rem;
+.newsroom-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
+.carousel-container {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 20px;
+}
+
+.news-slide {
+  text-align: center;
+}
+
+.news-slide h3 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.news-slide p {
+  font-size: 1.2rem;
+  color: gray;
+}
