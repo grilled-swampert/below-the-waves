@@ -1,0 +1,101 @@
+
+.min-h-screen {
+    min-height: 100vh;
+}
+
+.newsroom-container {
+    padding: 2rem; 
+    margin-top: 7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.bg-gradient {
+    background: linear-gradient(to bottom, #bfdbfe, #93c5fd); /* Light blue gradient */
+}
+
+.newsroom-title {
+    font-size: 2.5rem; /* Large title */
+    font-weight: bold;
+    color: #1f2937; /* Dark gray color */
+    margin-bottom: 1.5rem; /* Space below the title */
+}
+
+.search-bar {
+    width: 100%;
+    max-width: 32rem; /* Limit width */
+    margin-bottom: 2.5rem; /* Space below the search bar */
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.5rem 1rem; /* Padding for the input */
+    border-radius: 0.5rem; /* Rounded corners */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #d1d5db; /* Border color */
+    outline: none;
+}
+
+.search-input:focus {
+    border-color: #3b82f6; /* Focus border color */
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5); /* Focus effect */
+}
+
+.news-card {
+    background: #ffffff; /* White background for news cards */
+    padding: 1.5rem; /* Padding inside the cards */
+    border-radius: 0.5rem; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    height: 250px; /* Increased height for better visibility */
+}
+
+.news-card:hover {
+    transform: scale(1.05); /* Scale effect on hover */
+}
+
+.news-card-title {
+    font-size: 1.5rem; /* Title size */
+    font-weight: 600; /* Bold title */
+    color: #1f2937; /* Dark gray */
+    margin-bottom: 0.5rem; /* Space below title */
+}
+
+.news-card-content {
+    color: #4b5563; /* Gray color for content */
+    margin-bottom: 1rem; /* Space below content */
+}
+
+.read-more {
+    color: #3b82f6; /* Link color */
+    font-weight: 500; /* Medium weight */
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 6rem; /* Space above pagination */
+}
+
+.pagination-button {
+    margin: 0 0.25rem; /* Space between buttons */
+    padding: 0.5rem 1rem; /* Button padding */
+    border-radius: 0.5rem; /* Rounded corners */
+    font-size: 0.875rem; /* Button text size */
+    transition: all 0.3s;
+    border: 1px solid transparent; /* Default border */
+}
+
+.pagination-button.active {
+    background: #3b82f6; /* Active page color */
+    color: white; /* Active text color */
+}
+
+.pagination-button.inactive {
+    background: white; /* Inactive background */
+    color: #3b82f6; /* Inactive text color */
+    border: 1px solid #3b82f6; /* Inactive border */
+}

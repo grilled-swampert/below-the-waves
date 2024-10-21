@@ -11,6 +11,15 @@ import Preloader from './pages/preloader/preloaderPage';
 import ContactPage from './pages/contact/contactPage';
 import FundraiserPage from './pages/fundraiser/fundraiserPage';
 
+import AdminPreloader from './admin__pages/preloader/preloaderPage';
+import AdminHomePage from './admin__pages/home/homePage';
+import AdminNewsPage from './admin__pages/news/newsPage';
+import AdminDonatePage from './admin__pages/donate/donatePage';
+import AdminFundraiserPage from './admin__pages/fundraiser/fundraiserPage';
+import AdminWorkPage from './admin__pages/work/workPage';
+import AdminWikiPage from './admin__pages/wiki/wikiPage';
+import AdminContactPage from './admin__pages/contact/contactPage';
+
 function App() {
   return (
     <BrowserRouter>
@@ -23,6 +32,15 @@ function App() {
         <Route path="/work" element={<WorkPage />} />
         <Route path="/wiki" element={<WikiPage />} />
         <Route path="/contact" element={<ContactPage />} />
+
+        <Route path="/admin" element={<AdminPreloader />} />
+        <Route path="/admin/home" element={<AdminHomePage />} />
+        <Route path="/admin/newsroom" element={<AdminNewsPage />} />
+        <Route path="/admin/donate" element={<AdminDonatePage />} />
+        <Route path="/admin/fundraiser" element={<AdminFundraiserPage />} />
+        <Route path="/admin/work" element={<AdminWorkPage />} />
+        <Route path="/admin/wiki" element={<AdminWikiPage />} />
+        <Route path="/admin/contact" element={<AdminContactPage />} />
       </Routes>
     </BrowserRouter>
   );

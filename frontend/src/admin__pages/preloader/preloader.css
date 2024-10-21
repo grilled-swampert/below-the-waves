@@ -1,0 +1,73 @@
+/* General container styling */
+.preloader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #111827;
+  color: white;
+}
+
+/* Center the letter animation properly */
+.letter-wrapper {
+  margin-bottom: 2rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%; /* Full width for perfect centering */
+}
+
+.letter-group {
+  font-size: 6rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  width: 24rem; /* Matches w-96 */
+}
+
+/* Letter container */
+.letter-container {
+  position: relative;
+  transition: transform 2s cubic-bezier(0.45, 0.05, 0.55, 0.95); /* Smooth video-like easing */
+  width: 6rem;
+}
+
+.letter-original,
+.letter-expanded {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+}
+
+.letter-original.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.letter-original.hide {
+  opacity: 0;
+  transform: scale(0.7); /* Shrinks smoothly */
+}
+
+.letter-expanded.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.letter-expanded.hide {
+  opacity: 0;
+  transform: scale(0.7); /* Shrinks smoothly */
+}
+
+/* Wavy progress bar */
+.progress-bar {
+  margin-top: 6rem;
+}
+
+/* Progress percentage text */
+.progress-text {
+  margin-top: 1rem;
+  font-size: 1.25rem;
+}

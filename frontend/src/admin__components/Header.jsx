@@ -86,13 +86,13 @@ export const Header = () => {
           </defs>
         </a>
         <div className="header-right">
-          {/* <button
+          <button
             className="fundraiser__button"
             aria-label="go to fundraising"
             onClick={redirectFunds}
           >
             Fundraising
-          </button> */}
+          </button>
           <button
             className="donate__button"
             aria-label="donate"
