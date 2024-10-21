@@ -3,59 +3,58 @@ import "./footer.css";
 
 const Footer = () => {
   return (
-    <div class="footer">
-      <div class="brand-col">
-        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
-        <div class="legal-info">
-          <p>&copy; Below The Waves</p>
-          <a href="#">Terms of Use</a>
+    <div className="footer">
+      <div className="brand-col">
+        <h3>Protecting Our Oceans, Preserving Our Future</h3>
+        <div className="legal-info">
+          <p>&copy; 2024 Below The Waves</p>
           <a href="#">Privacy Policy</a>
         </div>
       </div>
-      <div class="link-col">
+      <div className="link-col">
         <ul>
           <li>Resources</li>
           <li>
-            <a href="#">Help Center</a>
+            <a href="#">Marine Conservation</a>
           </li>
           <li>
-            <a href="#">Support</a>
+            <a href="#">Sustainable Practices</a>
           </li>
           <li>
-            <a href="#">Newsroom</a>
+            <a href="#">Oceanography Research</a>
           </li>
           <li>
-            <a href="#">Status</a>
-          </li>
-        </ul>
-        <ul>
-          <li>Development</li>
-          <li>
-            <a href="#">Developers</a>
-          </li>
-          <li>
-            <a href="#">Documentation</a>
-          </li>
-          <li>
-            <a href="#">Product Updates</a>
-          </li>
-          <li>
-            <a href="#">FAQ</a>
+            <a href="#">Community Initiatives</a>
           </li>
         </ul>
         <ul>
-          <li>Company</li>
+          <li>Education</li>
           <li>
-            <a href="#">Careers</a>
+            <a href="#">Get Involved</a>
           </li>
           <li>
-            <a href="#">Blog</a>
+            <a href="#">Workshops</a>
           </li>
           <li>
-            <a href="#">Culture</a>
+            <a href="#">Educational Resources</a>
           </li>
           <li>
-            <a href="#">Team</a>
+            <a href="#">Volunteer Opportunities</a>
+          </li>
+        </ul>
+        <ul>
+          <li>About Us</li>
+          <li>
+            <a href="#">Our Mission</a>
+          </li>
+          <li>
+            <a href="#">Our Team</a>
+          </li>
+          <li>
+            <a href="#">Partner Organizations</a>
+          </li>
+          <li>
+            <a href="#">Contact Us</a>
           </li>
         </ul>
       </div>
