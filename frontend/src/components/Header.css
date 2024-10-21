@@ -213,23 +213,13 @@
   cursor: pointer;
   transition: var(--btn-transition);
   overflow: hidden;
+  border-radius: 4rem;
+  width: 300px;
 
-  /* Shiny shadow effect */
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.2),
     0 0 20px rgba(255, 255, 255, 0.2), 0 0 30px rgba(255, 255, 255, 0.3);
-  animation: shiny-shadow 2s infinite alternate;
 }
 
-@keyframes shiny-shadow {
-  0% {
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2),
-      0 0 20px rgba(255, 255, 255, 0.2), 0 0 30px rgba(255, 255, 255, 0.3);
-  }
-  100% {
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2),
-      0 0 30px rgba(255, 255, 255, 0.2), 0 0 40px rgba(255, 255, 255, 0.5);
-  }
-}
 
 .hamburger {
   --swiper-theme-color: #007aff;
