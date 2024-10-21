@@ -33,57 +33,6 @@ const ContactPage = () => {
   const earthRef = useRef(null);
   const [mapCenter, setMapCenter] = useState([38.9072, -77.0369]); // Default center (Washington, DC)
 
-  useEffect(() => {
-    let scene, camera, renderer, earth, controls;
-
-    // Set up the scene
-    scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
-    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(300, 300);
-    earthRef.current.appendChild(renderer.domElement);
-
-    // Create Earth
-    const geometry = new THREE.SphereGeometry(5, 32, 32);
-    const texture = new THREE.TextureLoader().load('frontendsrc/assets/images/earth.jpg');
-    const material = new THREE.MeshPhongMaterial({ map: texture });
-    earth = new THREE.Mesh(geometry, material);
-    scene.add(earth);
-
-    // Add lighting
-    const ambientLight = new THREE.AmbientLight(0x404040);
-    scene.add(ambientLight);
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
-    directionalLight.position.set(1, 1, 1);
-    scene.add(directionalLight);
-
-    camera.position.z = 15;
-
-    // Add OrbitControls
-    controls = new OrbitControls(camera, renderer.domElement);
-    controls.enableDamping = true;
-    controls.dampingFactor = 0.05;
-
-    // Animation loop
-    const animate = function () {
-      requestAnimationFrame(animate);
-      earth.rotation.y += 0.005;
-      controls.update();
-      renderer.render(scene, camera);
-    };
-
-    animate();
-
-    // Clean up
-    return () => {
-      earthRef.current.removeChild(renderer.domElement);
-      renderer.dispose();
-      geometry.dispose();
-      material.dispose();
-      controls.dispose();
-    };
-  }, []);
-
   // List of locations with coordinates and details
   const locations = [
     {
@@ -120,11 +69,10 @@ const ContactPage = () => {
         <div className="contact-content">
           <div className="contact-details">
             <h2>Contact Us</h2>
-            <p>Email: contact@example.com</p>
+            <p>Email: belowthewaves@gmail.com</p>
             <p>Phone: +1 (123) 456-7890</p>
-            <p>Address: 123 Ocean Avenue, Seaside City, Marine State 12345</p>
 
-            <h3>Locations</h3>
+            <h2>Locations</h2>
             <ul>
               {locations.map((location, index) => (
                 <li

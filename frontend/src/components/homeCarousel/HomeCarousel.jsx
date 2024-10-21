@@ -15,7 +15,6 @@ export const HomeCarousel = () => {
     Plants,
     CatMuffs,
     Relaxing,
-    Groceries,
     Robot,
     Plants,
     CatMuffs,
