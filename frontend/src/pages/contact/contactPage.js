@@ -12,6 +12,7 @@ import L from "leaflet";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
+import Footer from "../../components/footer/Footer";
 
 // Fix Leaflet's missing marker icon issue in React
 delete L.Icon.Default.prototype._getIconUrl;
@@ -152,6 +153,7 @@ const ContactPage = () => {
           </div>
           <div ref={earthRef} className="earth-container"></div>
         </div>
+        <Footer />
       </div>
     </div>
   );

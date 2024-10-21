@@ -39,11 +39,13 @@
     flex-direction: row;
     margin-bottom: 25px;
     max-width: 90%;
+    gap: 2rem;
+    align-items: center;
 }
 
 .form__email {
     padding: 15px 20px;
-    border-radius: 5px 0 0 5px;
+    border-radius: 5px 5px 5px 5px;
     border: 1px solid #4fc3f7;
     width: 300px;
     font-size: 16px;

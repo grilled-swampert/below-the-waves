@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./workPage.css";
 import { Header } from "../../components/Header";
+import workBackground from "../../assets/gifs/anime-quarium.gif";
+import Footer from "../../components/footer/Footer";
 
 const WorkPage = () => {
   const [showGrid, setShowGrid] = useState(false);
@@ -24,6 +26,11 @@ const WorkPage = () => {
     <div className="screen-grid">
       <Header />
       <div className="work-container">
+        <img
+          src={workBackground}
+          alt="Work Background"
+          className="work-background"
+        />
         <div className="card">
           {Array(12)
             .fill(0)
@@ -49,6 +56,7 @@ const WorkPage = () => {
             ))}
           </div>
         )}
+        <Footer />
       </div>
     </div>
   );

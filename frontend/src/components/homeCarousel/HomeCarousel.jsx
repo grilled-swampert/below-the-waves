@@ -5,7 +5,7 @@ import Groceries from "./images/groceries.png";
 import Robot from "./images/robot.png";
 import Plants from "./images/plants.png";
 import CatMuffs from "./images/cat-muffs.png";
-
+import Relaxing from "./images/relaxing.png";
 
 export const HomeCarousel = () => {
   const stickySections = [...document.querySelectorAll(".sticky")];
@@ -13,7 +13,13 @@ export const HomeCarousel = () => {
     Groceries,
     Robot,
     Plants,
-    CatMuffs
+    CatMuffs,
+    Relaxing,
+    Groceries,
+    Robot,
+    Plants,
+    CatMuffs,
+    Relaxing,
   ];
 
   images.forEach((img) => {
@@ -44,8 +50,7 @@ export const HomeCarousel = () => {
   return (
     <div className="sticky_parent">
       <div className="sticky">
-        <div className="scroll_section">
-        </div>
+        <div className="scroll_section"></div>
       </div>
     </div>
   );

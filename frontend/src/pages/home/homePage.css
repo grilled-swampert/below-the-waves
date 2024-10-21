@@ -73,6 +73,11 @@
   -webkit-background-clip: text;
 }
 
+.text-part-5 {
+  display: flex;
+  flex-direction: row;
+}
+
 /* Hover effects for interactivity */
 .content-wrapper-text p {
   transition: transform 0.3s ease, text-shadow 0.3s ease;
@@ -183,17 +188,10 @@
   border-radius: 10px;
 }
 
-.footer {
-  padding: 2rem;
-  background-color: #343a40;
-  color: white;
-  text-align: center;
+.home__video {
+  border-radius: 4rem;
+  margin-top: 3rem;
 }
-
-.footer p {
-  margin: 0;
-}
-
 /* Responsive Styles */
 @media (max-width: 1200px) {
   .screen-grid {

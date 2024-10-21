@@ -92,19 +92,17 @@ const HomePage = () => {
 
         <Newsletter />
 
-        <AboutUs />
-
-        <video autoPlay muted loop className="video">
+        <video autoPlay muted loop className="home__video">
           <source
             src={FishVideo}
             type="video/mp4"
           />
           Your browser does not support the video tag.
         </video>
+        
+        <CampaignElement />
 
         <HomeCarousel />
-
-        <CampaignElement />
 
         <Footer />
       </div>
