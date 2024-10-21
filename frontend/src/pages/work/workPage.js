@@ -5,21 +5,25 @@ import workBackground from "../../assets/gifs/anime-quarium.gif";
 import Footer from "../../components/footer/Footer";
 
 const WorkPage = () => {
-  const [showGrid, setShowGrid] = useState(false);
-  const [randomGrid, setRandomGrid] = useState([]);
+  const [clickedTitle, setClickedTitle] = useState(null);  // Store clicked title
 
-  const generateRandomGrid = () => {
-    // Generate random Bento grid layout
-    const gridItems = Array.from({ length: 6 }, () => ({
-      width: Math.random() > 0.5 ? "2fr" : "1fr",
-      height: Math.random() > 0.5 ? "200px" : "100px",
-    }));
-    setRandomGrid(gridItems);
-  };
+  const oceanConservationTitles = [
+    { title: "Coral Reef Restoration", color: "#FFFFFF" },  // Coral
+    { title: "Marine Debris Cleanup", color: "#FFFFFF" },   // Light Sea Green
+    { title: "Sustainable Fishing", color: "#FFFFFF" },     // Royal Blue
+    { title: "Ocean Acidification Research", color: "#FFFFFF" }, // Lime Green
+    { title: "Sea Turtle Protection", color: "#FFFFFF" },   // Forest Green
+    { title: "Mangrove Reforestation", color: "#FFFFFF" },  // Dark Sea Green
+    { title: "Whale Migration Tracking", color: "#FFFFFF" }, // Steel Blue
+    { title: "Plastic Pollution Prevention", color: "#FFFFFF" }, // Indian Red
+    { title: "Seagrass Meadow Conservation", color: "#FFFFFF" }, // Medium Sea Green
+    { title: "Marine Protected Areas", color: "#FFFFFF" },  // Slate Blue
+    { title: "Shark Conservation", color: "#FFFFFF" },      // Slate Gray
+    { title: "Deep-Sea Ecosystem Study", color: "#FFFFFF" } // Midnight Blue
+  ];
 
-  const handleClick = () => {
-    generateRandomGrid();
-    setShowGrid(true);
+  const handleClick = (title) => {
+    setClickedTitle(title);  // Set the clicked title
   };
 
   return (
@@ -32,28 +36,15 @@ const WorkPage = () => {
           className="work-background"
         />
         <div className="card">
-          {Array(12)
-            .fill(0)
-            .map((_, index) => (
-              <p key={index} onClick={handleClick}>
-                <span>HOVER ME</span>
-              </p>
-            ))}
+          {oceanConservationTitles.map(({ title, color }, index) => (
+            <p key={index} onClick={() => handleClick(title)}>
+              <span style={{ color: color }}>{title}</span>
+            </p>
+          ))}
         </div>
-        {showGrid && (
-          <div className="bento-grid">
-            {randomGrid.map((item, index) => (
-              <div
-                key={index}
-                className="bento-item"
-                style={{
-                  width: item.width,
-                  height: item.height,
-                  backgroundColor: "#ff5a91",
-                  margin: "10px",
-                }}
-              />
-            ))}
+        {clickedTitle && (
+          <div className="fetch-status">
+            <p>{clickedTitle}: To be fetched from backend.</p>
           </div>
         )}
         <Footer />
