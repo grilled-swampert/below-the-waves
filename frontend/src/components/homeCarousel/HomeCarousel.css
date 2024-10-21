@@ -90,7 +90,6 @@
   width: calc(100% - 8px);
   height: calc(100% - 10px);
   box-sizing: content-box;
-  background-color: #803;
   background-image: radial-gradient(
       4px 8px at 4px calc(100% - 8px),
       rgba(255, 255, 255, 0.25),
