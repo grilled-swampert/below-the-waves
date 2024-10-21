@@ -3,10 +3,9 @@ import { Header } from "../../components/Header";
 
 const AdminWikiPage = () => {
   return (
-    <>
+    <div className="screen-grid">
       <Header />
-      <h1>wikii page yo</h1>
-    </>
+    </div>
   );
 };
 
