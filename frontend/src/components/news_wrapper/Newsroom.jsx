@@ -44,7 +44,7 @@ const Newsroom = () => {
                 />
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl w-full">
+            <div className="cards-container">
                 {currentItems.map((news, index) => (
                     <div 
                         key={index} 
@@ -52,7 +52,7 @@ const Newsroom = () => {
                     >
                         <h2 className="news-card-title">{news.title}</h2>
                         <p className="news-card-content">{news.content}</p>
-                        <a href="#" className="read-more">Read more</a>
+                        <a href={news.newsUrl} className="read-more">Read more</a>
                     </div>
                 ))}
             </div>

@@ -102,8 +102,6 @@ const HomePage = () => {
         
         <CampaignElement />
 
-        <HomeCarousel />
-
         <Footer />
       </div>
     </div>

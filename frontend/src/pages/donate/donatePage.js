@@ -53,47 +53,23 @@ const DonatePage = () => {
       <Header />
       
       <div className="donate-page-wrapper">
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-1 gap-8">
           {/* Left Panel */}
           <div className="space-y-6">
-            <div className="card">
+            <div className="donate-card">
               <div className="mb-6">
-                <h2 className="heading">Support Our Cause</h2>
+                <h2 className="donate-heading">Support Our Cause</h2>
               </div>
               {/* Donation Type */}
               <div className="space-y-4">
                 <p>Your donation helps us continue our mission. Choose between a one-time gift or become a monthly supporter to make a lasting impact.</p>
-                <div className="space-y-2">
-                  <div className="radio-option">
-                    <input
-                      type="radio"
-                      id="one-time"
-                      name="donationType"
-                      value="one-time"
-                      checked={donationType === "one-time"}
-                      onChange={(e) => setDonationType(e.target.value)}
-                    />
-                    <label htmlFor="one-time">One-time Donation</label>
-                  </div>
-                  <div className="radio-option">
-                    <input
-                      type="radio"
-                      id="monthly"
-                      name="donationType"
-                      value="monthly"
-                      checked={donationType === "monthly"}
-                      onChange={(e) => setDonationType(e.target.value)}
-                    />
-                    <label htmlFor="monthly">Monthly Donation</label>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
 
           {/* Right Panel */}
           <div>
-            <div className="card">
+            <div className="donate-card">
               <div className="mb-6">
                 <h2 className="heading">Make a Donation</h2>
               </div>
@@ -105,25 +81,27 @@ const DonatePage = () => {
                   placeholder="Your Name"
                   value={donorName}
                   onChange={(e) => setDonorName(e.target.value)}
-                  className="input-field"
+                  className="donate-input-field"
                 />
                 <input
-                  type="email"
+                  type="text"
                   placeholder="Your Email"
                   value={donorEmail}
                   onChange={(e) => setDonorEmail(e.target.value)}
-                  className="input-field"
+                  className="donate-input-field"
                 />
                 
                 {/* Category Selection */}
                 <select
                   value={category}
+                  style={{ height: "40px" }}
                   onChange={(e) => setCategory(e.target.value)}
-                  className="input-field"
+                  className="donate-input-field"
                 >
-                  <option value="">Select Category</option>
+                  <option value="" style={{ fontSize: "16px"
+                  }}>Select Category</option>
                   {categories.map((cat) => (
-                    <option key={cat} value={cat}>
+                    <option key={cat} value={cat} style={{ fontSize: "16px"}}>
                       {cat}
                     </option>
                   ))}

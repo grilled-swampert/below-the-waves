@@ -19,10 +19,10 @@ export const Header = () => {
   const images = [homeImage, wikiImage, workImage, newsroomImage, contactImage];
 
   const menuItems = [
-    { number: "01", text: "Home", link: "/home" },
+    { number: "01", text: "Home", link: "/admin/home" },
     { number: "02", text: "Wiki ↗", link: "/wiki" },
     { number: "03", text: "Our Work", link: "/work" },
-    { number: "04", text: "Newsroom", link: "/newsroom" },
+    { number: "04", text: "Newsroom", link: "/admin/newsroom" },
     { number: "05", text: "Contact", link: "/contact" },
   ];
 
@@ -34,13 +34,13 @@ export const Header = () => {
 
   useEffect(() => {
     const url = window.location.href;
-    if (url.includes("/home")) {
+    if (url.includes("/admin/home")) {
       setCurrentItem(0);
     } else if (url.includes("/wiki")) {
       setCurrentItem(1);
     } else if (url.includes("/work")) {
       setCurrentItem(2);
-    } else if (url.includes("/newsroom")) {
+    } else if (url.includes("/admin/newsroom")) {
       setCurrentItem(3);
     } else if (url.includes("/contact")) {
       setCurrentItem(4);
@@ -52,7 +52,7 @@ export const Header = () => {
   };
 
   const redirectDonate = () => {
-    navigateURL("/donate");
+    navigateURL("/home/donate");
   };
 
   return (
@@ -91,14 +91,14 @@ export const Header = () => {
             aria-label="go to fundraising"
             onClick={redirectFunds}
           >
-            Fundraising
+            A
           </button>
           <button
             className="donate__button"
             aria-label="donate"
             onClick={redirectDonate}
           >
-            Donate
+            DONATE
           </button>
           <button
             className="hamburger"

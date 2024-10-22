@@ -198,7 +198,7 @@
   /* 👆 this field should not be empty */
 }
 
-.fundraiser__button,
+
 .donate__button {
   box-sizing: border-box;
   padding: var(--btn-padding);
@@ -221,7 +221,30 @@
     0 0 20px rgba(255, 255, 255, 0.2), 0 0 30px rgba(255, 255, 255, 0.3);
 }
 
-.donate__button:hover {
+.fundraiser__button {
+  box-sizing: border-box;
+  padding: var(--btn-padding);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--default-btn-color);
+  font: var(--font-weight) var(--font-size);
+  font-family: "Poppins", sans-serif;
+  background: var(--btn-default-bg);
+  cursor: pointer;
+  transition: var(--btn-transition);
+  overflow: hidden;
+  border-radius: 4rem;
+  width: 50px;
+  word-spacing: 1rem;
+
+  box-shadow: 0 0 10px rgba(245, 243, 179, 0.7),
+    0 0 20px rgba(255, 255, 255, 0.2), 0 0 30px rgba(255, 255, 255, 0.3);
+
+}
+
+.donate__button:hover,
+.fundraiser__button:hover{
   background: linear-gradient(90deg, rgba(255, 255, 255, 1), rgba(245, 243, 179, 1));
   transition: all 0.5s ease;
   color: black;

@@ -70,10 +70,8 @@
 .fetch-status{
   display: flex;
   justify-content: center;
-  align-items: center;
   background-color: rgba(96, 96, 96, 0.2);
   padding: 2rem;
   margin-top: 10px;
   border-radius: 4rem;
-  height: 20vh;
 }

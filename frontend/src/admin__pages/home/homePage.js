@@ -2,11 +2,9 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import "./homePage.css";
 import mainBackground from "../../assets/images/main-background.jpg";
-import { Header } from "../../components/Header";
+import { Header } from "../../admin__components/Header";
 import quote01 from "../../assets/svgs/quote-1.svg";
 import Newsletter from "../../components/newsletter/Newsletter";
-import { HomeCarousel } from "../../components/homeCarousel/HomeCarousel";
-import AboutUs from "../../components/aboutUs/About_Us";
 import CampaignElement from "../../components/campaignElement/campaignElement";
 import Footer from "../../components/footer/Footer";
 import FishVideo from "../../assets/video/fish.mp4";
@@ -101,8 +99,6 @@ const AdminHomePage = () => {
         </video>
         
         <CampaignElement />
-
-        <HomeCarousel />
 
         <Footer />
       </div>
