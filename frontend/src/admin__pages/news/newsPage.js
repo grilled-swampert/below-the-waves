@@ -1,7 +1,7 @@
 import React from "react";
-import Footer from "../../components/footer/Footer"
-import { Header } from "../../components/Header";
-import Newsroom from "../../components/news_wrapper/Newsroom";
+import Footer from "../../admin__components/footer/Footer"
+import { Header } from "../../admin__components/Header";
+import Newsroom from "../../admin__components/news_wrapper/Newsroom";
 
 const AdminNewsPage = () => {
   return (

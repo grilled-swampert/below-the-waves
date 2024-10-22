@@ -98,7 +98,7 @@ export const Header = () => {
             aria-label="donate"
             onClick={redirectDonate}
           >
-            Donate
+            DONATE
           </button>
           <button
             className="hamburger"

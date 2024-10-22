@@ -14,7 +14,7 @@ import FundraiserPage from './pages/fundraiser/fundraiserPage';
 import AdminPreloader from './admin__pages/preloader/preloaderPage';
 import AdminHomePage from './admin__pages/home/homePage';
 import AdminNewsPage from './admin__pages/news/newsPage';
-import AdminDonatePage from './admin__pages/donate/donatePage';
+import AdminDonatePage from './admin__pages/donate/AdminDonatePage';
 import AdminFundraiserPage from './admin__pages/fundraiser/fundraiserPage';
 import AdminWorkPage from './admin__pages/work/workPage';
 import AdminWikiPage from './admin__pages/wiki/wikiPage';

@@ -3,13 +3,27 @@ import { gsap } from 'gsap';
 import './Newsroom.css'; // Import the CSS file
 
 const Newsroom = () => {
+    const [newsItems, setNewsItems] = useState([]); // State for news items
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 6; // Number of news items per page
-    const totalNewsItems = 30; // Total number of news items
-    const newsItems = Array.from({ length: totalNewsItems }, (_, index) => ({
-        title: `News Title ${index + 1}`,
-        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent facilisis sed velit quis aliquet.',
-    }));
+
+    // Fetch news items from the backend
+    useEffect(() => {
+        const fetchNews = async () => {
+            try {
+                const response = await fetch('/news'); // Replace with your actual API endpoint
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                setNewsItems(data);
+            } catch (error) {
+                console.error('Error fetching news:', error);
+            }
+        };
+
+        fetchNews();
+    }, []);
 
     // Calculate the news items for the current page
     const indexOfLastItem = currentPage * itemsPerPage;
@@ -45,7 +59,7 @@ const Newsroom = () => {
 
             {/* Pagination Controls */}
             <div className="pagination">
-                {Array.from({ length: Math.ceil(totalNewsItems / itemsPerPage) }, (_, index) => (
+                {Array.from({ length: Math.ceil(newsItems.length / itemsPerPage) }, (_, index) => (
                     <button
                         key={index}
                         onClick={() => paginate(index + 1)}

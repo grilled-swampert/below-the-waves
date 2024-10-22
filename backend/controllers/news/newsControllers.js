@@ -12,7 +12,17 @@ exports.getNews = async (req, res) => {
 
 // Post a new news article
 exports.createNews = async (req, res) => {
-  const { title, content, author, imageUrl, tags } = req.body;
+  const { title, content, author, imageUrl, tags, newsUrl } = req.body;
+
+  // Debug: Log incoming request data
+  console.log("Incoming request to create news:", {
+    title,
+    content,
+    author,
+    imageUrl,
+    tags,
+    newsUrl,
+  });
 
   try {
     const newNews = new News({
@@ -21,13 +31,22 @@ exports.createNews = async (req, res) => {
       author,
       imageUrl,
       tags,
+      newsUrl
     });
     await newNews.save();
+    
+    // Debug: Log the newly created news item
+    console.log("Successfully created news:", newNews);
+    
     res.status(201).json(newNews);
   } catch (error) {
+    // Debug: Log the error message
+    console.error("Error creating news:", error);
+    
     res.status(500).json({ error: "Error creating news" });
   }
 };
+
 
 // Delete a news article
 exports.deleteNews = async (req, res) => {

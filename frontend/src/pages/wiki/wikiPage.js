@@ -29,7 +29,7 @@ const WikiPage = () => {
                 Your trial 18 years of life has expired. Continue by working
                 your sweat off or
                 <a class="alert-prompt-link" href="#">
-                  Upgrade To Premium.
+                  Upgrade To Hell.
                 </a>
               </p>
             </div>
