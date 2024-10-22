@@ -19,7 +19,7 @@ export const Header = () => {
   const images = [homeImage, wikiImage, workImage, newsroomImage, contactImage];
 
   const menuItems = [
-    { number: "01", text: "Home", link: "/admin/home" },
+    { number: "01", text: "Home", link: "/admin/" },
     { number: "02", text: "Wiki ↗", link: "/wiki" },
     { number: "03", text: "Our Work", link: "/work" },
     { number: "04", text: "Newsroom", link: "/admin/newsroom" },
@@ -52,7 +52,7 @@ export const Header = () => {
   };
 
   const redirectDonate = () => {
-    navigateURL("/home/donate");
+    navigateURL("/admin/donate");
   };
 
   return (

@@ -24,8 +24,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Preloader />} />
-        <Route path="/home" element={<HomePage />} />  
+        <Route path="/" element={<HomePage />} />  
         <Route path="/newsroom" element={<NewsPage />} />
         <Route path="/donate" element={<DonatePage />} />
         <Route path="/fundraiser" element={<FundraiserPage />} />
@@ -34,7 +33,7 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
 
         <Route path="/admin" element={<AdminPreloader />} />
-        <Route path="/admin/home" element={<AdminHomePage />} />
+        <Route path="/admin/" element={<AdminHomePage />} />
         <Route path="/admin/newsroom" element={<AdminNewsPage />} />
         <Route path="/admin/donate" element={<AdminDonatePage />} />
         <Route path="/admin/fundraiser" element={<AdminFundraiserPage />} />

@@ -51,7 +51,7 @@ export default function Newsletter() {
           onChange={handleEmailChange}
           required
         />
-        <button className="form__button" type="submit" disabled={!isChecked}>
+        <button className="form__button" type="submit">
           Sail Away
         </button>
       </form>
